@@ -43,22 +43,26 @@ function _createBugs() {
             {
                 title: "Infinite Loop Detected",
                 severity: 4,
-                _id: "1NF1N1T3"
+                _id: "1NF1N1T3",
+                description: "very serious bug"
             },
             {
                 title: "Keyboard Not Found",
                 severity: 3,
-                _id: "K3YB0RD"
+                _id: "K3YB0RD",
+                description: "very serious bug"
             },
             {
                 title: "404 Coffee Not Found",
                 severity: 2,
-                _id: "C0FF33"
+                _id: "C0FF33",
+                description: "very serious bug"
             },
             {
                 title: "Unexpected Response",
                 severity: 1,
-                _id: "G0053"
+                _id: "G0053",
+                description: "very serious bug"
             }
         ]
         utilService.saveToStorage(STORAGE_KEY, bugs)
