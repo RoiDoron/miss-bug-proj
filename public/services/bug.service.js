@@ -12,15 +12,23 @@ export const bugService = {
     getById,
     save,
     remove,
+    getDefaultFilter
 }
 
 
-function query() {
-    console.log('hi');
-
+function query(filterBy) {
     return axios.get(BASE_URL)
         .then(res => res.data)
         .then(bugs => {
+            if (filterBy.title) {
+                const regex = new RegExp(filterBy.title, 'i')
+                bugs = bugs.filter(bug => regex.test(bug.title))
+            }
+            if (filterBy.severity) {
+                bugs = bugs.filter(bug => bug.severity >= filterBy.severity)
+            }
+            console.log(bugs);
+
             return bugs
         })
 }
@@ -87,4 +95,8 @@ function _createBugs() {
 
 
 
+}
+
+function getDefaultFilter() {
+    return { title: '', severity: 0 }
 }
