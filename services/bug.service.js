@@ -11,8 +11,19 @@ export const bugService = {
 
 const bugs = utilService.readJsonFile('data/bug.json')
 
-function query() {
-    return Promise.resolve(bugs)
+function query(bugsId) {
+    console.log(bugsId);
+
+    let randomNum = utilService.getRandomIntInclusive(0, bugs.length - 4)
+    let userBugs = bugs.slice(randomNum, randomNum + 3)
+    let user = userBugs.filter((bug) => bug._id === bugsId[0] ||bug._id === bugsId[1]||bug._id === bugsId[2] )
+    console.log(user);
+
+
+
+
+    if (user.length) return Promise.reject('Wait for a bit')
+    return Promise.resolve(userBugs)
 }
 
 function getById(id) {
@@ -30,7 +41,7 @@ function remove(id) {
 
 function save(bug) {
     console.log(bug);
-    
+
     if (bug._id) {
         const bugIdx = bugs.findIndex(_bug => _bug._id === bug._id)
         bugs[bugIdx] = bug
