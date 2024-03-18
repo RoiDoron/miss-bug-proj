@@ -12,7 +12,8 @@ export function BugIndex() {
     }, [])
 
     function loadBugs() {
-        bugService.query().then(setBugs)
+        bugService.query()
+            .then(bugs => setBugs(bugs))
     }
 
     function onRemoveBug(bugId) {
@@ -50,10 +51,11 @@ export function BugIndex() {
     }
 
     function onEditBug(bug) {
+        console.log(bug);
         const severity = +prompt('New severity?')
         const bugToSave = { ...bug, severity }
-        bugService
-            .save(bugToSave)
+        console.log(bugToSave);
+        bugService.save(bugToSave)
             .then((savedBug) => {
                 console.log('Updated Bug:', savedBug)
                 const bugsToUpdate = bugs.map((currBug) =>

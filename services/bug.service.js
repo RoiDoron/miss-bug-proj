@@ -1,6 +1,7 @@
 import fs from 'fs'
 
 import { utilService } from "./utils.service.js";
+import { log } from 'console';
 export const bugService = {
     query,
     getById,
@@ -28,12 +29,13 @@ function remove(id) {
 }
 
 function save(bug) {
+    console.log(bug);
+    
     if (bug._id) {
         const bugIdx = bugs.findIndex(_bug => _bug._id === bug._id)
         bugs[bugIdx] = bug
     } else {
         bug._id = utilService.makeId()
-        bug.description = utilService.makeLorem(10)
         bug.createdAt = Date.now()
         bugs.unshift(bug)
     }
