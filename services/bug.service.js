@@ -22,9 +22,23 @@ function query(filterBy) {
     }
     if (filterBy.labels) {
         console.log('im here', filterBy.labels);
-        bugsToReturn = bugsToReturn.filter(bug =>bug.labels.includes(filterBy.labels))
+        bugsToReturn = bugsToReturn.filter(bug => bug.labels.includes(filterBy.labels))
     }
-    
+    if (filterBy.sort) {
+        if (filterBy.sort === 'title') bugsToReturn.sort((a, b) =>{const titleA = a.title.toUpperCase()
+        const titleB = b.title.toUpperCase()
+        if (titleA < titleB) {
+          return -1;
+        }
+        if (titleA > titleB) {
+          return 1;
+        }
+        return 0;
+      })
+        else if (filterBy.sort === 'severity') bugsToReturn.sort((a, b) => a.severity - b.severity)
+        else if (filterBy.sort === 'createdAt') bugsToReturn.sort((a, b) => a.createdAt - b.createdAt)
+    }
+
     return Promise.resolve(bugsToReturn)
 }
 

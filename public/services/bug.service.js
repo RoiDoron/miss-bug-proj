@@ -81,5 +81,5 @@ function _createBugs() {
 }
 
 function getDefaultFilter() {
-    return { title: '', severity: 0,labels:'' }
+    return { title: '', severity: 0,labels:'',sort:'' }
 }

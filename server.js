@@ -15,7 +15,8 @@ app.get('/api/bug', (req, res) => {
         title: req.query.title || '',
         description: req.query.description || '',
         severity: +req.query.severity || 0,
-        labels:req.query.labels ||''
+        labels:req.query.labels ||'',
+        sort:req.query.sort ||''
         // pageIdx: req.query.pageIdx
     }
     bugService.query(filterBy)

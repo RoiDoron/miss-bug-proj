@@ -41,10 +41,17 @@ export function BugFilter({ onSetFilter, filterBy }) {
                 placeholder="By severity" />
 
                 <select onChange={handleChange} name="labels">
-                    <option value=""></option>
+                    <option value="">labels</option>
                     <option value="critical">critical</option>
                     <option value="need-CR">need-CR</option>
                     <option value="dev-branch">dev-branch</option>
+                </select>
+
+                <select onChange={handleChange} name="sort">
+                    <option value="">sort</option>
+                    <option value="title">title</option>
+                    <option value="severity">severity</option>
+                    <option value="createdAt">createdAt</option>
                 </select>
 
             <button>Filter</button>
