@@ -1,63 +1,162 @@
 [
     {
-        "title": "the worst bug",
-        "severity": 4,
-        "description": "tuned a dead channel above happens a dead channel and above the port a different story this happened _id=zPKOZ",
-        "_id": "jh1Yw",
-        "createdAt": 1710779957551
+      "title": "Critical Issue",
+      "severity": 3,
+      "description": "Encountered a critical issue while processing data. Needs immediate attention.",
+      "_id": "xyz123",
+      "createdAt": 1734523999000,
+      "labels": ["critical", "need-CR", "dev-branch"]
     },
     {
-        "title": "the small bug",
-        "severity": 3,
-        "description": "tuned a dead channel above happens a dead channel and above the port a different story this happened _id=undefined",
-        "_id": "8RbZc",
-        "createdAt": 1710779936905
+      "title": "Bug in UI Component",
+      "severity": 2,
+      "description": "UI component misaligned in certain resolutions. Requires fixing.",
+      "_id": "abc456",
+      "createdAt": 1734524112000,
+      "labels": ["need-CR"]
     },
     {
-        "title": "the wtf? bug",
-        "severity": 5,
-        "description": "tuned a dead channel above happens a dead channel and above the port a different story this happened _id=undefined",
-        "_id": "IZ0rX"
+      "title": "Database Connection Error",
+      "severity": 4,
+      "description": "Frequent database connection errors observed during peak hours.",
+      "_id": "def789",
+      "createdAt": 1734524225000,
+      "labels": ["critical", "dev-branch"]
     },
     {
-        "title": "the worst bug ever",
-        "severity": 2,
-        "_id": "zPKOZ",
-        "description": "tuned a dead channel above happens a dead channel and above the port a different story this happened ",
-        "createdAt": 1710774396291
+      "title": "Performance Degradation",
+      "severity": 3,
+      "description": "Noticeable performance degradation in recent builds.",
+      "_id": "ghi012",
+      "createdAt": 1734524338000,
+      "labels": ["need-CR", "dev-branch"]
     },
     {
-        "title": "the big bug",
-        "severity": 3,
-        "description": "tuned a dead channel above happens a dead channel and above the port a different story this happened _id=zPKOZ",
-        "_id": "e8aLm",
-        "createdAt": 1710780047548
+      "title": "Security Vulnerability",
+      "severity": 5,
+      "description": "Critical security vulnerability discovered in authentication module.",
+      "_id": "jkl345",
+      "createdAt": 1734524451000,
+      "labels": ["critical", "need-CR"]
     },
     {
-        "title": "the worst bug",
-        "severity": 4,
-        "description": "tuned a dead channel above happens a dead channel and above the port a different story this happened _id=zPKOZ",
-        "_id": "jh1Yw",
-        "createdAt": 1710779957551
+      "title": "Data Loss Issue",
+      "severity": 4,
+      "description": "Data loss issue encountered during data migration process.",
+      "_id": "mno678",
+      "createdAt": 1734524564000,
+      "labels": ["critical"]
     },
     {
-        "title": "the small bug",
-        "severity": 3,
-        "description": "tuned a dead channel above happens a dead channel and above the port a different story this happened _id=undefined",
-        "_id": "8RbZc",
-        "createdAt": 1710779936905
+      "title": "UI Rendering Problem",
+      "severity": 2,
+      "description": "UI elements not rendering properly on certain browsers.",
+      "_id": "pqr901",
+      "createdAt": 1734524677000,
+      "labels": ["need-CR"]
     },
     {
-        "title": "the wtf? bug",
-        "severity": 5,
-        "description": "tuned a dead channel above happens a dead channel and above the port a different story this happened _id=undefined",
-        "_id": "IZ0rX"
+      "title": "Backend API Failure",
+      "severity": 4,
+      "description": "Backend API failing intermittently under heavy load.",
+      "_id": "stu234",
+      "createdAt": 1734524790000,
+      "labels": ["critical", "dev-branch"]
     },
     {
-        "title": "the worst bug ever",
-        "severity": 2,
-        "_id": "zPKOZ",
-        "description": "tuned a dead channel above happens a dead channel and above the port a different story this happened ",
-        "createdAt": 1710774396291
+      "title": "Memory Leak",
+      "severity": 4,
+      "description": "Memory leak detected in background process. Requires investigation.",
+      "_id": "vwx567",
+      "createdAt": 1734524903000,
+      "labels": ["critical", "need-CR"]
+    },
+    {
+      "title": "Authentication Issue",
+      "severity": 3,
+      "description": "Intermittent authentication failures observed for certain users.",
+      "_id": "yza890",
+      "createdAt": 1734525016000,
+      "labels": ["need-CR"]
+    },
+    {
+      "title": "Compatibility Problem",
+      "severity": 2,
+      "description": "Compatibility issues observed with third-party libraries.",
+      "_id": "bcd123",
+      "createdAt": 1734525129000,
+      "labels": ["dev-branch"]
+    },
+    {
+      "title": "Data Corruption Bug",
+      "severity": 5,
+      "description": "Critical data corruption bug detected in database operations.",
+      "_id": "efg456",
+      "createdAt": 1734525242000,
+      "labels": ["critical", "need-CR", "dev-branch"]
+    },
+    {
+      "title": "UI Freeze",
+      "severity": 3,
+      "description": "UI freezes intermittently during user interactions.",
+      "_id": "hij789",
+      "createdAt": 1734525355000,
+      "labels": ["need-CR"]
+    },
+    {
+      "title": "Concurrency Issue",
+      "severity": 4,
+      "description": "Concurrency issue detected in multi-threaded environment.",
+      "_id": "klm012",
+      "createdAt": 1734525468000,
+      "labels": ["critical", "dev-branch"]
+    },
+    {
+      "title": "Data Validation Error",
+      "severity": 2,
+      "description": "Data validation error occurs with certain input formats.",
+      "_id": "nop345",
+      "createdAt": 1734525581000,
+      "labels": ["need-CR"]
+    },
+    {
+      "title": "Slow API Response",
+      "severity": 3,
+      "description": "API responses slow down significantly during peak traffic.",
+      "_id": "qrs678",
+      "createdAt": 1734525694000,
+      "labels": ["critical", "dev-branch"]
+    },
+    {
+      "title": "Resource Leak",
+      "severity": 4,
+      "description": "Resource leak detected in file handling module.",
+      "_id": "tuv901",
+      "createdAt": 1734525807000,
+      "labels": ["critical", "need-CR"]
+    },
+    {
+      "title": "Dependency Compatibility Issue",
+      "severity": 3,
+      "description": "Compatibility issue with dependencies causing unexpected behavior.",
+      "_id": "wxy234",
+      "createdAt": 1734525920000,
+      "labels": ["need-CR", "dev-branch"]
+    },
+    {
+      "title": "Intermittent Network Disconnects",
+      "severity": 4,
+      "description": "Intermittent network disconnects observed during data transfers.",
+      "_id": "zab567",
+      "createdAt": 1734526033000,
+      "labels": ["critical", "dev-branch"]
+    },
+    {
+      "title": "Error Handling Bug",
+      "severity": 3,
+      "description": "Error handling bug causes unexpected crashes in certain scenarios.",
+      "_id": "cde890",
+      "createdAt": 1734526146000,
+      "labels": ["need-CR"]
     }
-]
+  ]

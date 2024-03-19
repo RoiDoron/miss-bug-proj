@@ -8,7 +8,8 @@ export const utilService = {
     httpGet,
     makeId,
     makeLorem,
-    getRandomIntInclusive
+    getRandomIntInclusive,
+    createLabels
 }
 
 
@@ -83,4 +84,13 @@ function getRandomIntInclusive(min, max) {
     min = Math.ceil(min)
     max = Math.floor(max)
     return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive 
+}
+
+function createLabels(){
+    const labelsBank = ['critical', 'need-CR', 'dev-branch']
+    const labels = []
+    for (let i = 0; i < getRandomIntInclusive(0,2); i++) {
+        labels.push(labelsBank[i]) 
+    }
+
 }

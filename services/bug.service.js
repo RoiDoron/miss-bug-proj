@@ -11,19 +11,21 @@ export const bugService = {
 
 const bugs = utilService.readJsonFile('data/bug.json')
 
-function query(bugsId) {
-    console.log(bugsId);
-
-    let randomNum = utilService.getRandomIntInclusive(0, bugs.length - 4)
-    let userBugs = bugs.slice(randomNum, randomNum + 3)
-    let user = userBugs.filter((bug) => bug._id === bugsId[0] ||bug._id === bugsId[1]||bug._id === bugsId[2] )
-    console.log(user);
-
-
-
-
-    if (user.length) return Promise.reject('Wait for a bit')
-    return Promise.resolve(userBugs)
+function query(filterBy) {
+    let bugsToReturn = bugs
+    if (filterBy.title) {
+        const regex = new RegExp(filterBy.title, 'i')
+        bugsToReturn = bugsToReturn.filter(bug => regex.test(bug.title))
+    }
+    if (filterBy.severity) {
+        bugsToReturn = bugsToReturn.filter(bug => bug.severity >= filterBy.severity)
+    }
+    if (filterBy.labels) {
+        console.log('im here', filterBy.labels);
+        bugsToReturn = bugsToReturn.filter(bug =>bug.labels.includes(filterBy.labels))
+    }
+    
+    return Promise.resolve(bugsToReturn)
 }
 
 function getById(id) {
@@ -48,6 +50,7 @@ function save(bug) {
     } else {
         bug._id = utilService.makeId()
         bug.createdAt = Date.now()
+        bug.labels = utilService.createLabels()
         bugs.unshift(bug)
     }
     return _saveBugsToFile().then(() => bug)
@@ -66,3 +69,10 @@ function _saveBugsToFile() {
         })
     })
 }
+
+/// if there is cookies
+// let randomNum = utilService.getRandomIntInclusive(0, bugs.length - 4)
+// let userBugs = bugs.slice(randomNum, randomNum + 3)
+// let user = userBugs.filter((bug) => bug._id === bugsId[0] ||bug._id === bugsId[1]||bug._id === bugsId[2] )
+// console.log(user);
+// if (user.length) return Promise.reject('Wait for a bit')

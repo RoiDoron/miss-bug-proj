@@ -16,6 +16,7 @@ export function BugFilter({ onSetFilter, filterBy }) {
         let { value, name: field, type } = target
         if (type === 'number') value = +value
         setFilterByToEdit((prevFilterBy) => ({ ...prevFilterBy, [field]: value }))
+        console.log(filterByToEdit);
     }
 
 
@@ -38,6 +39,13 @@ export function BugFilter({ onSetFilter, filterBy }) {
                 value={filterByToEdit.severity || ''}
                 onChange={handleChange}
                 placeholder="By severity" />
+
+                <select onChange={handleChange} name="labels">
+                    <option value=""></option>
+                    <option value="critical">critical</option>
+                    <option value="need-CR">need-CR</option>
+                    <option value="dev-branch">dev-branch</option>
+                </select>
 
             <button>Filter</button>
         </form>

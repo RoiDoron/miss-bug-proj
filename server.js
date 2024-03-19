@@ -10,10 +10,17 @@ app.use(cookieParser())
 app.listen(3030, () => console.log('Server ready at port 3030'))
 
 app.get('/api/bug', (req, res) => {
-    let visitedBugs = req.cookies.visitedBugs || []
-    bugService.query(visitedBugs)
+    // let visitedBugs = req.cookies.visitedBugs || []
+    const filterBy = {
+        title: req.query.title || '',
+        description: req.query.description || '',
+        severity: +req.query.severity || 0,
+        labels:req.query.labels ||''
+        // pageIdx: req.query.pageIdx
+    }
+    bugService.query(filterBy)
         .then(bugs => {
-            res.cookie('visitedBugs', bugs.map(bug => bug._id), { maxAge: 7 * 1000 })
+            // res.cookie('visitedBugs', bugs.map(bug => bug._id), { maxAge: 7 * 1000 })
             res.send(bugs)
         })
         .catch(err => {
@@ -23,12 +30,13 @@ app.get('/api/bug', (req, res) => {
         })
 })
 
-app.get('/api/bug/save', (req, res) => {
+app.put('/api/bug', (req, res) => {
     const bugToSave = {
         title: req.query.title,
         severity: +req.query.severity,
         description: req.query.description,
-        _id: req.query._id
+        _id: req.query._id,
+        labels: req.query.labels
     }
     bugService.save(bugToSave)
         .then(bug => res.send(bug))
@@ -50,7 +58,7 @@ app.get('/api/bug/:bugId', (req, res) => {
         })
 })
 
-app.get('/api/bug/:bugId/remove', (req, res) => {
+app.delete('/api/bug/:bugId', (req, res) => {
     console.log('delete....');
     const bugId = req.params.bugId
     bugService.remove(bugId)
